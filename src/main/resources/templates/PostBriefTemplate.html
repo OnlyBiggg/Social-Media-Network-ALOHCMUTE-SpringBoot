@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport">
+	<title>Post</title>
+</head>
+
+<body>
+
+	<div class="img-w" th:fragment="post (post)" th:onclick="'detailpost(' + ${post.postID} + ')'">
+		<img th:src="${post?.imageURL}" class="img-w-1" />
+		<div class="overlay" style="
+                                    color: white;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                ">
+			<div style="margin-right: 15px">
+				<i class="fa-solid fa-heart list-item-icon"></i>
+				<span th:text = "${post.likeCount}"></span>
+			</div>
+			<div>
+				<i class="fa-solid fa-comment list-item-icon"></i>
+				<span  th:text = "${post.commentCount}" ></span>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
